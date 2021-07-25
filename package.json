@@ -1,0 +1,37 @@
+{
+  "name": "public-subscribe-mode-ts-zgy",
+  "version": "1.0.0",
+  "description": "use typescript code's subscribe-mode",
+  "main": "./dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ts": "rm -rf ./lib && mkdir lib && tsc",
+    "build": "npm run build:ts && rm -rf ./dist && webpack --env=production --mode=production",
+    "build:buyer": "npm run build:ts && rm -rf ./dist && cross-env ROLE=buyer webpack --env=production --mode=production",
+    "dev": "npm run build:ts && rm -rf ./dist && webpack  --env=development --mode=development",
+    "dev:buyer": "npm run build:ts && rm -rf ./dist && cross-env ROLE=buyer webpack --env=development --mode=development",
+    "dev:test": "npm run build:ts && rm -rf ./dist && cross-env ROLE=buyer webpack  --env=test --mode=development"
+  },
+  "keywords": [
+    "ts",
+    "subscribe"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hyacinth-zgy/public-subscribe-first.git"
+  },
+  "author": "Hycinthy zgy",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.15.2",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "thread-loader": "^3.0.4"
+  }
+}
